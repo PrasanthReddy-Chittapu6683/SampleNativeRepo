@@ -15,13 +15,17 @@ const renderCard = ({
   return (
     <Box border="1" borderRadius="md" style={[cssStyles, styles.cardContainer]}>
       <VStack space="4" divider={<Divider bg={dividerColor || ""} />}>
-        <Box px="4" pt="4">
-          {header}
-        </Box>
-        <Box px="4">{body}</Box>
-        <Box px="4" pb="4">
-          {footer}
-        </Box>
+        {header && (
+          <Box px="4" pt="4">
+            {header}
+          </Box>
+        )}
+        {body && <Box px="4">{body}</Box>}
+        {footer && (
+          <Box px="4" pb="4">
+            {footer}
+          </Box>
+        )}
       </VStack>
     </Box>
   );
