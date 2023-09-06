@@ -33,7 +33,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState } from "react";
 
 Bugsnag.start();
-console.log("theme in app.js....", theme);
+// console.log("theme in app.js....", theme);
 export default function App() {
   const themeFlag = "apollo";
   const [themeSelected, setThemeSelected] = useState(themeFlag);
@@ -87,7 +87,7 @@ export default function App() {
                 ...DefaultTheme,
                 colors: {
                   ...DefaultTheme.colors,
-                  background: "#ffffff",
+                  background: "#C8D3F1",
                   // background: "#12121A",
                 },
               }}
