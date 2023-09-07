@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Box, Heading, Text, ChevronLeftIcon, Image } from "native-base";
 import { isWeb, useDeviceOrientation } from "../../core/services/platform";
@@ -12,23 +12,34 @@ import { useNavigation } from "@react-navigation/native";
 import { goBack } from "../../core/services/navigation";
 import ApolloLogo from "../../assets/ApolloLogo.png";
 import motiveLogo from "../../assets/motiveLogo.jpg";
-import * as WebBrowser from 'expo-web-browser';
-import { makeRedirectUri, TokenResponse, useAuthRequest, useAutoDiscovery, use } from 'expo-auth-session';
+import * as WebBrowser from "expo-web-browser";
+import {
+  makeRedirectUri,
+  TokenResponse,
+  useAuthRequest,
+  useAutoDiscovery,
+  use,
+} from "expo-auth-session";
 import * as AuthSession from "expo-auth-session";
 import { Platform } from "react-native";
-import configFile from './auth.config';
+import configFile from "./auth.config";
 import { setAuthToken } from "../../core/services/auth";
-
+import { TenantContext } from "../../core/contexts/TenantContext";
 
 const EmailPageScreen = (props) => {
-
+  const tenentCtx = useContext(TenantContext);
   const navigation = useNavigation();
-  WebBrowser.maybeCompleteAuthSession()
+  WebBrowser.maybeCompleteAuthSession();
 
-  const useProxy = Platform.select({ web: true, android: true, ios: true, default: true });
+  const useProxy = Platform.select({
+    web: true,
+    android: true,
+    ios: true,
+    default: true,
+  });
 
   const discovery = useAutoDiscovery(configFile.oidc.issuer);
-  const [loginCode, setloginCode] = useState("")
+  const [loginCode, setloginCode] = useState("");
   const [request, response, promptAsync] = useAuthRequest(
     {
       clientId: configFile.oidc.clientId,
@@ -43,25 +54,27 @@ const EmailPageScreen = (props) => {
     discovery
   );
   useEffect(() => {
-    if (response && response?.type === 'success') {
-      console.log("Login Access Token >>>", response?.authentication?.accessToken)
+    if (response && response?.type === "success") {
+      console.log(
+        "Login Access Token >>>",
+        response?.authentication?.accessToken
+      );
       // const { code } = response?.params;
       // setAuthToken("eyJraWQiOiI0Rk9Qak9pazVYVEtsZnBHc3FWb01GdkNFR2ZmTkZ0WDIzdGJuT2FWamo4IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkUtT1Z6R1FhOUQ0aEMyUHdDR1NudmlsUFg4dkxCTEZ3YktaNTRiT1l2N28iLCJpc3MiOiJodHRwczovL2Fwb2xsb2lkLm9rdGFwcmV2aWV3LmNvbS9vYXV0aDIvZGVmYXVsdCIsImF1ZCI6ImFwaTovL2RlZmF1bHQiLCJpYXQiOjE2OTQwNDQxOTcsImV4cCI6MTY5NDA0Nzc5NywiY2lkIjoiMG9hNXFxbjV6YlhLNzZyY2YxZDciLCJ1aWQiOiIwMHU1dncxaHRxWXBLdXVxNzFkNyIsInNjcCI6WyJvcGVuaWQiLCJwcm9maWxlIl0sImF1dGhfdGltZSI6MTY5NDA0NDE5Niwic3ViIjoicGt1bWFycmVkZHlAYXBvbGxvLWFkdmlzb3JzLmNvbSIsIkdyb3VwcyI6WyJva3RhLWFwcGxpY2F0aW9uLWVtcGxveWVlaW52ZXN0b3ItZGV2Iiwib2t0YS1hcHBsaWNhdGlvbi1lbXBsb3llZWludmVzdG9yLWFkbWluLWRldiJdLCJwb3J0YWxGZWRlcmF0aW9uSWRPdmVycmlkZSI6InNwYXRlbEBhcG9sbG8uY29tIn0.M4ffFl--KX9Yd81_bx9OzraX2XvDuNAf66_usG9Txgi3cBcCUS5rQLepyzVf9kLMDSGypN8hHG6rpbx3RWzzISh4-1MOTr-lkbUcc44Fo6jxVsUTLsJEOFN2f1ZqUxH4uLHwLf6NhG9yo1x0mpYBQkl4ItRoAziiVufbOE4hrcoxXBBpwvEs4twpn8GoIbiqhK2WTS7iGOhySq2UEz2N8BN5JHQ9CNJMyw70cUsKmRAG3zFnAuFyFFDdlpNvCQA-c7oKuSRKJYzuBs2AVha9gXFfMvw2nZKt44o8BTEgdrDxAQmNADwSKtA0hD-SfS1fYNeI166-Z13X0JsCOwFKHQ")
 
-      setAuthToken(response?.authentication?.accessToken)
-      navigation.navigate("Login")
+      setAuthToken(response?.authentication?.accessToken);
+      navigation.navigate("Login");
       // navigation.push("Main", {
       //   currentTab: "Dashboard",
       // });
-    }
-    else if (response !== null) {
+    } else if (response !== null) {
       // setAuthToken("eyJraWQiOiI0Rk9Qak9pazVYVEtsZnBHc3FWb01GdkNFR2ZmTkZ0WDIzdGJuT2FWamo4IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkUtT1Z6R1FhOUQ0aEMyUHdDR1NudmlsUFg4dkxCTEZ3YktaNTRiT1l2N28iLCJpc3MiOiJodHRwczovL2Fwb2xsb2lkLm9rdGFwcmV2aWV3LmNvbS9vYXV0aDIvZGVmYXVsdCIsImF1ZCI6ImFwaTovL2RlZmF1bHQiLCJpYXQiOjE2OTQwNDQxOTcsImV4cCI6MTY5NDA0Nzc5NywiY2lkIjoiMG9hNXFxbjV6YlhLNzZyY2YxZDciLCJ1aWQiOiIwMHU1dncxaHRxWXBLdXVxNzFkNyIsInNjcCI6WyJvcGVuaWQiLCJwcm9maWxlIl0sImF1dGhfdGltZSI6MTY5NDA0NDE5Niwic3ViIjoicGt1bWFycmVkZHlAYXBvbGxvLWFkdmlzb3JzLmNvbSIsIkdyb3VwcyI6WyJva3RhLWFwcGxpY2F0aW9uLWVtcGxveWVlaW52ZXN0b3ItZGV2Iiwib2t0YS1hcHBsaWNhdGlvbi1lbXBsb3llZWludmVzdG9yLWFkbWluLWRldiJdLCJwb3J0YWxGZWRlcmF0aW9uSWRPdmVycmlkZSI6InNwYXRlbEBhcG9sbG8uY29tIn0.M4ffFl--KX9Yd81_bx9OzraX2XvDuNAf66_usG9Txgi3cBcCUS5rQLepyzVf9kLMDSGypN8hHG6rpbx3RWzzISh4-1MOTr-lkbUcc44Fo6jxVsUTLsJEOFN2f1ZqUxH4uLHwLf6NhG9yo1x0mpYBQkl4ItRoAziiVufbOE4hrcoxXBBpwvEs4twpn8GoIbiqhK2WTS7iGOhySq2UEz2N8BN5JHQ9CNJMyw70cUsKmRAG3zFnAuFyFFDdlpNvCQA-c7oKuSRKJYzuBs2AVha9gXFfMvw2nZKt44o8BTEgdrDxAQmNADwSKtA0hD-SfS1fYNeI166-Z13X0JsCOwFKHQ")
       // navigation.push("Main", {
       //   currentTab: "Dashboard",
       // });
-      console.log("Login Failure Response >>>", response)
+      console.log("Login Failure Response >>>", response);
     }
-    setloginCode(response?.type)
+    setloginCode(response?.type);
   }, [response]);
 
   const handleRoute = () => {
@@ -69,7 +82,6 @@ const EmailPageScreen = (props) => {
       currentTab: "Dashboard",
     });
   };
-
 
   return (
     <Box style={styles.container}>
@@ -79,7 +91,6 @@ const EmailPageScreen = (props) => {
         </TouchableOpacity>
       </Box>
       <Box style={styles.textAndBtnWrapper}>
-
         <Box>
           <Heading
             textAlign={"center"}
@@ -96,8 +107,8 @@ const EmailPageScreen = (props) => {
               //   });
               // }}
               onPress={() => {
-                navigation.navigate("Login")
-
+                tenentCtx.updateTenant("apollo");
+                navigation.navigate("Login");
                 // promptAsync({ useProxy, preferEphemeralSession: true });
               }}
             >
@@ -119,9 +130,8 @@ const EmailPageScreen = (props) => {
               //   });
               // }}
               onPress={() => {
-                navigation.push("Login", {
-                  userDomain: "APOLLO",
-                });
+                tenentCtx.updateTenant("motive");
+                navigation.push("Login");
               }}
             >
               <Image
@@ -169,7 +179,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   imageWrapper: {
-    margin: 20
+    margin: 20,
   },
   textAndBtnWrapper: {
     flex: 1,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Box, HStack, KeyboardAvoidingView, ScrollView } from "native-base";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -14,6 +14,8 @@ import ProfileIcon from "../images/ProfileIcon";
 import { colors } from "../theme/colors";
 import { goBack } from "../services/navigation";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { apolloColors } from "../theme/apolloColors";
+import { TenantContext } from "../contexts/TenantContext";
 
 const Layout = ({
   title,
@@ -40,6 +42,7 @@ const Layout = ({
   const offsetTopToUse = offsetTop || "15px";
   const offsetSidesToUse = isNil(offsetSides) ? "page" : offsetSides;
   const offsetBottomToUse = isNil(offsetBottom) ? "0px" : offsetBottom;
+  const tenentCtx = useContext(TenantContext);
 
   const renderPage = (content) => {
     if (avoidKeyboard) {
@@ -76,9 +79,9 @@ const Layout = ({
       <ScreenContainer>
         <Box
           _dark={{
-            bg: colors.gradients[900],
+            bg: tenentCtx.tenant === "motive" ? colors.gradients[900] : apolloColors.gradients[900],
           }}
-          bg={colors.gradients[100]}
+          bg={tenentCtx.tenant === "motive" ? colors.gradients[100] : apolloColors.gradients[100]}
           flex={1}
           {...props}
         >

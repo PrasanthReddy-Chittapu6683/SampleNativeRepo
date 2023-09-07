@@ -11,10 +11,15 @@ import { isEmailValid } from "../../../core/services/forms";
 import { baseToastProps } from "../../../core/constants/errors";
 import { getAuthToken } from "../../../core/services/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { TenantContext } from "../../../core/contexts/TenantContext";
+import theme from "../../../core/theme";
+
+console.log("theme from loginscreen.js....", theme);
 
 const LoginScreen = ({ route }) => {
+  const tenentCtx = useContext(TenantContext);
   const navigation = useNavigation();
-  console.log("loginscreen route.params....", route.params);
+  console.log("loginscreen tenentCtx....", tenentCtx);
   const toast = useToast();
   const [loading, setLoading] = useState(false);
   // const [authToken, setauthToken] = useState(false);
@@ -64,7 +69,7 @@ const LoginScreen = ({ route }) => {
     <Layout avoidKeyboard showBackButton>
       <Box>
         <Heading size={"title"} mb={4}>
-          What's your email?
+          What's your email? - {tenentCtx.tenant}
         </Heading>
         <Text variant={"subTitle"} mb={8}>
           To login, we'll use your email. Please enter it below
