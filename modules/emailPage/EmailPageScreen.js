@@ -96,7 +96,9 @@ const EmailPageScreen = (props) => {
               //   });
               // }}
               onPress={() => {
-                promptAsync({ useProxy, preferEphemeralSession: true });
+                navigation.navigate("Login")
+
+                // promptAsync({ useProxy, preferEphemeralSession: true });
               }}
             >
               <Image
