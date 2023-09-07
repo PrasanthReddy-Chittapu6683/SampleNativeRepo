@@ -41,6 +41,7 @@ import { InvestmentProvider } from "./modules/investments/contexts/InvestmentCon
 import InvestmentMoicTrackerScreen from "./modules/investments/components/InvestmentMoicTrackerScreen";
 import WelcomeSliderScreen from "./modules/home/components/WelcomeSliderScreen";
 import LandingpageScreen from "./modules/landingPage/LandingpageScreen";
+import EmailPageScreen from "./modules/emailPage/EmailPageScreen";
 
 export const routes = {
   loading: {
@@ -55,6 +56,14 @@ export const routes = {
     name: "LandingPage",
     route: "landingPage",
     component: LandingpageScreen,
+    options: {
+      headerShown: false,
+    },
+  },
+  emailPage: {
+    name: "EmailPage",
+    route: "emailPage",
+    component: EmailPageScreen,
     options: {
       headerShown: false,
     },
@@ -357,6 +366,7 @@ export const useRoutes = () => {
     routes.loading,
     routes.landingPage,
     routes.home,
+    routes.emailPage,
     routes.welcome,
     routes.login,
     routes.verify,
