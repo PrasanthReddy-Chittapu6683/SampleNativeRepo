@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Box, Heading, Text, useToast } from "native-base";
 import Layout from "../../../core/components/Layout";
 import { useNavigation } from "@react-navigation/native";
@@ -9,13 +9,26 @@ import { catchify } from "../../../core/services/promises";
 import PageButton from "../../../core/components/PageButton";
 import { isEmailValid } from "../../../core/services/forms";
 import { baseToastProps } from "../../../core/constants/errors";
+import { getAuthToken } from "../../../core/services/auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const LoginScreen = ({route}) => {
+const LoginScreen = ({ route }) => {
   const navigation = useNavigation();
   console.log("loginscreen route.params....", route.params);
   const toast = useToast();
   const [loading, setLoading] = useState(false);
+  // const [authToken, setauthToken] = useState(false);
   const { login, authError } = useContext(AuthContext);
+  // useEffect(async () => {
+  //   debugger;
+
+  //   const tokenVal = await AsyncStorage.getItem("edna-login-token").catch((e) => null);
+  //   setauthToken(tokenVal)
+  //   console.log("AUTH TOKEN>>>>", tokenVal)
+
+
+  // }, [])
+
   const formik = useFormik({
     initialValues: {
       email: "",

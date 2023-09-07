@@ -129,7 +129,8 @@ export const routes = {
     name: "Dashboard",
     route: "dashboard",
     component: DashboardScreen,
-    providers: [FundsProvider, SubscriptionsProvider, InvestmentsProvider],
+    providers: [],
+    // FundsProvider, SubscriptionsProvider, InvestmentsProvider
     options: {
       headerShown: false,
     },

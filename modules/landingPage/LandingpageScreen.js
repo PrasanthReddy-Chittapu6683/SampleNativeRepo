@@ -152,12 +152,12 @@ const styles = StyleSheet.create({
   //   backgroundColor: "#eae7e4",
   // },
   ednaLogoWrapper: {
-    width: "200px",
+    width: 200,
   },
   container: {
     flex: 1,
     alignItems: "start",
-    padding: "16px",
+    padding: 16,
   },
   textAndBtnWrapper: {
     flex: 1,
@@ -168,10 +168,10 @@ const styles = StyleSheet.create({
   loginBtn: {
     border: "1px solid #7b57fc",
     borderRadius: "8px",
-    height: "53px",
+    height: 53,
     justifyContent: "center",
   },
-  mainTitle: { fontSize: "25px", color: "#121220", marginBottom: "16px" },
+  mainTitle: { fontSize: 25, color: "#121220", marginBottom: 16 },
   btnText: {
     color: "#121220",
     textAlign: "center",
