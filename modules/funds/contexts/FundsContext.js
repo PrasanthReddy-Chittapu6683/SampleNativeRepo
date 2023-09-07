@@ -218,7 +218,7 @@ export const FundsProvider = ({ children }) => {
     ]
   }
 
-  // useApi("opportunity");
+  useApi("opportunity");
   const fundsToUse = availableFunds || [];
 
   return (

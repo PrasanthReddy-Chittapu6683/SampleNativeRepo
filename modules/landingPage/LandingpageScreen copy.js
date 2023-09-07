@@ -16,7 +16,7 @@ import * as WebBrowser from 'expo-web-browser';
 import { makeRedirectUri, TokenResponse, useAuthRequest, useAutoDiscovery, use } from 'expo-auth-session';
 import * as AuthSession from "expo-auth-session";
 import { Platform } from "react-native";
-import configFile from './auth.config';
+import configFile from '../emailPage/auth.config';
 import { setAuthToken } from "../../core/services/auth";
 
 
