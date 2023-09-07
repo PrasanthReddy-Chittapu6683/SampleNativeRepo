@@ -19,9 +19,8 @@ const LoadingScreen = () => {
   const hasAgreements = agreements?.length > 0 && !allAgreed;
 
   const resolveRedirect = () => {
-    debugger;
     if (route.params?.noRedirect) {
-      return "";
+      return "LandingPage";
     }
 
     if (isTokenLoading) {
@@ -33,7 +32,7 @@ const LoadingScreen = () => {
         !agreementsLoaded ||
         (userLoading !== ApiState.Success && !user?.id)
       ) {
-        return "";
+        return "LandingPage";
       }
 
       if (hasAgreements) {

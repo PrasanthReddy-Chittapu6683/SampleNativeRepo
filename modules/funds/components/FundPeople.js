@@ -64,6 +64,7 @@ const FundPeople = () => {
               </HStack>
               <Button
                 size={"cta"}
+                minW={"85px"}
                 onPress={() => {
                   WebBrowser.openBrowserAsync(person.link);
                 }}

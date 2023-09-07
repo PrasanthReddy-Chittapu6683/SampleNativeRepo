@@ -7,7 +7,14 @@ export const SubscriptionsContext = createContext({
 });
 
 export const SubscriptionsProvider = ({ children }) => {
-  const [subscriptionsLoading, subscriptions] = useApi("subscription");
+  debugger;
+
+  const [subscriptionsLoading, subscriptions] =
+  {
+    subscriptionsLoading: "success",
+    subscriptions: []
+  }
+  // useApi("subscription");
 
   return (
     <SubscriptionsContext.Provider
