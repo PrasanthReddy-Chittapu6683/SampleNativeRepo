@@ -1,3 +1,4 @@
+// import { useContext } from "react";
 import { extendTheme } from "native-base";
 import { colors } from "./colors";
 import { apolloColors } from "./apolloColors";
@@ -5,8 +6,11 @@ import {
   TOUCHABLE_HITSLOP_VALUE,
   TOUCHABLE_OPACITY_VALUE,
 } from "../components/Touchable";
+import { TenantContext } from "../contexts/TenantContext";
 
 const themeFlag = "apollo";
+// const tenentCtx = useContext(TenantContext);
+// console.log("themes file index tenentCtx....", tenentCtx);
 
 export const themeConfig = {
   config: {
@@ -23,7 +27,7 @@ export const themeConfig = {
     regular: "Roboto_400Regular",
     medium: "Roboto_400Regular",
     bold: "Roboto_500Medium",
-    alt: "Rochester_400Regular", 
+    alt: "Rochester_400Regular",
   },
   fontSizes: {
     page: "25px",
@@ -49,13 +53,19 @@ export const themeConfig = {
         bg: "transparent",
         background: "transparent",
         borderWidth: "1px",
-        borderColor: themeFlag === "apollo" ? apolloColors.buttons.base.dark : colors.buttons.base.dark,
+        borderColor:
+          themeFlag === "apollo"
+            ? apolloColors.buttons.base.dark
+            : colors.buttons.base.dark,
         paddingTop: 4,
         paddingBottom: 4,
         _light: {
           bg: "accent.325",
           background: "accent.325",
-          borderColor: colors.buttons.base.light,
+          borderColor:
+            themeFlag === "apollo"
+              ? apolloColors.buttons.base.light
+              : colors.buttons.base.light,
         },
         _pressed: {
           opacity: TOUCHABLE_OPACITY_VALUE,
@@ -100,15 +110,25 @@ export const themeConfig = {
     Heading: {
       baseStyle: {
         fontFamily: "medium",
-        color: colors.headings.base.dark,
+        color:
+          themeFlag === "apollo"
+            ? apolloColors.headings.base.dark
+            : colors.headings.base.dark,
         letterSpacing: "3px",
         textTransform: "uppercase",
         _light: {
-          color: colors.headings.base.light,
+          color:
+            themeFlag === "apollo"
+              ? apolloColors.headings.base.light
+              : colors.headings.base.light,
         },
       },
       defaultProps: {
         allowFontScaling: false,
+        color:
+          themeFlag === "apollo"
+            ? apolloColors.headings.base.dark
+            : colors.headings.base.dark,
       },
       sizes: {
         hero: {
@@ -149,10 +169,16 @@ export const themeConfig = {
           fontSize: "subTitle",
           letterSpacing: "1px",
           _dark: {
-            color: colors.headings.subTitle.dark,
+            color:
+              themeFlag === "apollo"
+                ? apolloColors.headings.subTitle.dark
+                : colors.headings.subTitle.dark,
           },
           _light: {
-            color: colors.headings.subTitle.light,
+            color:
+              themeFlag === "apollo"
+                ? apolloColors.headings.subTitle.light
+                : colors.headings.subTitle.light,
           },
         },
         sm: {
@@ -183,10 +209,16 @@ export const themeConfig = {
         subTitle: {
           fontSize: "subTitle",
           _dark: {
-            color: colors.headings.subTitle.dark,
+            color:
+              themeFlag === "apollo"
+                ? apolloColors.headings.subTitle.dark
+                : colors.headings.subTitle.dark,
           },
           _light: {
-            color: colors.headings.subTitle.light,
+            color:
+              themeFlag === "apollo"
+                ? apolloColors.headings.subTitle.light
+                : colors.headings.subTitle.light,
           },
         },
         bold: {
@@ -227,14 +259,20 @@ export const themeConfig = {
             _focus: {
               bg: "transparent",
               color: "white",
-              borderColor: colors.borders.inputs.dark,
+              borderColor:
+                themeFlag === "apollo"
+                  ? apolloColors.borders.inputs.dark
+                  : colors.borders.inputs.dark,
             },
           },
           _light: {
             bg: "transparent",
             _focus: {
               bg: "transparent",
-              borderColor: colors.borders.inputs.light,
+              borderColor:
+                themeFlag === "apollo"
+                  ? apolloColors.borders.inputs.light
+                  : colors.borders.inputs.light,
             },
           },
         },
@@ -243,14 +281,20 @@ export const themeConfig = {
             _focus: {
               bg: "transparent",
               color: "white",
-              borderColor: colors.borders.inputs.dark,
+              borderColor:
+                themeFlag === "apollo"
+                  ? apolloColors.borders.inputs.dark
+                  : colors.borders.inputs.dark,
             },
           },
           _light: {
             bg: "transparent",
             _focus: {
               bg: "transparent",
-              borderColor: colors.borders.inputs.light,
+              borderColor:
+                themeFlag === "apollo"
+                  ? apolloColors.borders.inputs.light
+                  : colors.borders.inputs.light,
             },
           },
         },
@@ -267,14 +311,20 @@ export const themeConfig = {
             _focus: {
               bg: "transparent",
               color: "white",
-              borderColor: colors.borders.inputs.dark,
+              borderColor:
+                themeFlag === "apollo"
+                  ? apolloColors.borders.inputs.dark
+                  : colors.borders.inputs.dark,
             },
           },
           _light: {
             bg: "transparent",
             _focus: {
               bg: "transparent",
-              borderColor: colors.borders.inputs.light,
+              borderColor:
+                themeFlag === "apollo"
+                  ? apolloColors.borders.inputs.light
+                  : colors.borders.inputs.light,
             },
           },
         },

@@ -31,12 +31,11 @@ import { ModalsProvider } from "./core/contexts/ModalsContext";
 import { routes } from "./routes";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState } from "react";
+import { TenantContextProvider } from "./core/contexts/TenantContext";
 
 Bugsnag.start();
 // console.log("theme in app.js....", theme);
 export default function App() {
-  const themeFlag = "apollo";
-  const [themeSelected, setThemeSelected] = useState(themeFlag);
   useRefreshDataOnAppFocus();
   let [fontsLoaded] = useFonts({
     Roboto_300Light,
@@ -93,17 +92,21 @@ export default function App() {
               }}
             >
               <StatusBar style={"light"} />
-              <AppProvider>
-                <ModalsProvider>
-                  <AuthProvider>
-                    <UserProvider>
-                      <AgreementsProvider>
-                        <Router />
-                      </AgreementsProvider>
-                    </UserProvider>
-                  </AuthProvider>
-                </ModalsProvider>
-              </AppProvider>
+
+              <TenantContextProvider>
+                <AppProvider>
+                  <ModalsProvider>
+                    <AuthProvider>
+                      <UserProvider>
+                        <AgreementsProvider>
+                          <Router />
+                        </AgreementsProvider>
+                      </UserProvider>
+                    </AuthProvider>
+                  </ModalsProvider>
+                </AppProvider>
+              </TenantContextProvider>
+              
             </NavigationContainer>
           </NativeBaseProvider>
         </GestureHandlerRootView>
