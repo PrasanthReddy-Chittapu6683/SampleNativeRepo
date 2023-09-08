@@ -25,6 +25,7 @@ import { Platform } from "react-native";
 import configFile from "./auth.config";
 import { setAuthToken } from "../../core/services/auth";
 import { TenantContext } from "../../core/contexts/TenantContext";
+import Layout from "../../core/components/Layout";
 
 const EmailPageScreen = (props) => {
   const tenentCtx = useContext(TenantContext);
@@ -84,66 +85,74 @@ const EmailPageScreen = (props) => {
   };
 
   return (
-    <Box style={styles.container}>
-      <Box style={styles.ednaLogoWrapper}>
-        <TouchableOpacity onPress={goBack}>
-          <ChevronLeftIcon size={6} style={{ color: "#121220" }} />
-        </TouchableOpacity>
-      </Box>
-      <Box style={styles.textAndBtnWrapper}>
-        <Box>
-          <Heading
-            textAlign={"center"}
-            style={[styles.mainTitle, styles.fw400]}
-          >
-            {/* WHAT'S YOUR EMAIL ADDRESS? */}
-            SELECT YOUR COMPANY
-          </Heading>
-          <Box style={styles.imageWrapper}>
-            <TouchableOpacity
-              // onPress={() => {
-              //   navigation.push("Login", {
-              //     userDomain: "APOLLO",
-              //   });
-              // }}
-              onPress={() => {
-                tenentCtx.updateTenant("apollo");
-                navigation.navigate("Login");
-                // promptAsync({ useProxy, preferEphemeralSession: true });
-              }}
+    <Layout
+      offsetTop={0}
+      offsetSides={0}
+      bg="#C8D3F1"
+      _dark={{
+        bg: "#C8D3F1",
+      }}
+    >
+      <Box style={styles.container}>
+        <Box style={styles.ednaLogoWrapper}>
+          <TouchableOpacity onPress={goBack}>
+            <ChevronLeftIcon size={6} style={{ color: "#121220" }} />
+          </TouchableOpacity>
+        </Box>
+        <Box style={styles.textAndBtnWrapper}>
+          <Box>
+            <Heading
+              textAlign={"center"}
+              style={[styles.mainTitle, styles.fw400]}
             >
-              <Image
-                source={ApolloLogo}
-                alt={"slide.title"}
-                resizeMode={"contain"}
-                w={"100%"}
-                h={isWeb ? "250px" : `300px`}
-              />
-            </TouchableOpacity>
-          </Box>
+              {/* WHAT'S YOUR EMAIL ADDRESS? */}
+              SELECT YOUR COMPANY
+            </Heading>
+            <Box style={styles.imageWrapper}>
+              <TouchableOpacity
+                // onPress={() => {
+                //   navigation.push("Login", {
+                //     userDomain: "APOLLO",
+                //   });
+                // }}
+                onPress={() => {
+                  tenentCtx.updateTenant("apollo");
+                  navigation.navigate("TermsAndConditionsPage");
+                  // promptAsync({ useProxy, preferEphemeralSession: true });
+                }}
+              >
+                <Image
+                  source={ApolloLogo}
+                  alt={"slide.title"}
+                  resizeMode={"contain"}
+                  w={"100%"}
+                  h={isWeb ? "250px" : `300px`}
+                />
+              </TouchableOpacity>
+            </Box>
 
-          <Box style={styles.imageWrapper}>
-            <TouchableOpacity
-              // onPress={() => {
-              //   navigation.push("Welcome", {
-              //     userDomain: "MOTIVE",
-              //   });
-              // }}
-              onPress={() => {
-                tenentCtx.updateTenant("motive");
-                navigation.push("Login");
-              }}
-            >
-              <Image
-                source={motiveLogo}
-                alt={"slide.title"}
-                resizeMode={"contain"}
-                w={"100%"}
-                h={isWeb ? "250px" : `300px`}
-              />
-            </TouchableOpacity>
-          </Box>
-          {/* <Text variant={"subTitle"} style={[styles.btnText, styles.fw300]}>
+            <Box style={styles.imageWrapper}>
+              <TouchableOpacity
+                // onPress={() => {
+                //   navigation.push("Welcome", {
+                //     userDomain: "MOTIVE",
+                //   });
+                // }}
+                onPress={() => {
+                  tenentCtx.updateTenant("motive");
+                  navigation.push("TermsAndConditionsPage");
+                }}
+              >
+                <Image
+                  source={motiveLogo}
+                  alt={"slide.title"}
+                  resizeMode={"contain"}
+                  w={"100%"}
+                  h={isWeb ? "250px" : `300px`}
+                />
+              </TouchableOpacity>
+            </Box>
+            {/* <Text variant={"subTitle"} style={[styles.btnText, styles.fw300]}>
             To login, we'll need your email address.
           </Text>
           <Box style={{ marginTop: "36px" }}>
@@ -158,12 +167,13 @@ const EmailPageScreen = (props) => {
               }}
             />
           </Box> */}
-        </Box>
-        {/* <TouchableOpacity style={styles.loginBtn}>
+          </Box>
+          {/* <TouchableOpacity style={styles.loginBtn}>
           <Text style={[styles.btnText, styles.fw400]}>NEXT</Text>
         </TouchableOpacity> */}
+        </Box>
       </Box>
-    </Box>
+    </Layout>
   );
 };
 

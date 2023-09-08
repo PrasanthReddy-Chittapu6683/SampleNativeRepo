@@ -1,6 +1,13 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { Box, HStack, KeyboardAvoidingView, ScrollView } from "native-base";
+import {
+  Box,
+  HStack,
+  KeyboardAvoidingView,
+  ScrollView,
+  Image,
+} from "native-base";
+import { StyleSheet } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import BackButton from "./BackButton";
 import LogoLetters from "./LogoLetters";
@@ -16,6 +23,8 @@ import { goBack } from "../services/navigation";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { apolloColors } from "../theme/apolloColors";
 import { TenantContext } from "../contexts/TenantContext";
+import ApolloLogo from "../../assets/ApolloLogo.png";
+import { isWeb } from "../services/platform";
 
 const Layout = ({
   title,
@@ -25,6 +34,7 @@ const Layout = ({
   offsetSides,
   offsetBottom,
   showBackButton,
+  showPageLogo,
   showBlank,
   onBackPress,
   backButtonProps,
@@ -43,6 +53,7 @@ const Layout = ({
   const offsetSidesToUse = isNil(offsetSides) ? "page" : offsetSides;
   const offsetBottomToUse = isNil(offsetBottom) ? "0px" : offsetBottom;
   const tenentCtx = useContext(TenantContext);
+  console.log("route name from layout file.....", route.name);
 
   const renderPage = (content) => {
     if (avoidKeyboard) {
@@ -79,15 +90,36 @@ const Layout = ({
       <ScreenContainer>
         <Box
           _dark={{
-            bg: tenentCtx.tenant === "motive" ? colors.gradients[900] : apolloColors.gradients[900],
+            bg:
+              tenentCtx.tenant === "motive"
+                ? colors.gradients[900]
+                : apolloColors.gradients[900],
           }}
-          bg={tenentCtx.tenant === "motive" ? colors.gradients[100] : apolloColors.gradients[100]}
+          bg={
+            tenentCtx.tenant === "motive"
+              ? colors.gradients[100]
+              : apolloColors.gradients[100]
+          }
           flex={1}
           {...props}
         >
           {content}
         </Box>
       </ScreenContainer>
+    );
+  };
+
+  const renderLogo = () => {
+    return tenentCtx.tenant === "motive" ? (
+      <LogoLetters />
+    ) : (
+      <Image
+        source={ApolloLogo}
+        alt={"slide.title"}
+        resizeMode={"contain"}
+        w={"100%"}
+        h={isWeb ? "100" : `100`}
+      />
     );
   };
 
@@ -99,13 +131,17 @@ const Layout = ({
           px={"page"}
           justifyContent={"space-between"}
         >
-          {(showBackButton && (
-            <BackButton
-              mb={2}
-              onPress={onBackPress || goBack}
-              {...backButtonProps}
-            />
-          )) || <LogoLetters />}
+          {
+            (showBackButton && (
+              <BackButton
+                mb={2}
+                onPress={onBackPress || goBack}
+                {...backButtonProps}
+              />
+            )) ||
+              (showPageLogo && renderLogo())
+            // <LogoLetters />
+          }
           {route.name === "Main" ? (
             <HStack alignItems={"center"} space={3}>
               <NotificationsButton />
@@ -131,12 +167,15 @@ const Layout = ({
   );
 };
 
+const styles = StyleSheet.create({});
+
 Layout.propTypes = {
   ...Box.propTypes,
   offsetTop: PropTypes.number,
   offsetSides: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   offsetBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   showBackButton: PropTypes.bool,
+  showPageLogo: PropTypes.bool,
   showBlank: PropTypes.bool,
   onBackPress: PropTypes.func,
   backButtonProps: PropTypes.shape(BackButton.propTypes),
