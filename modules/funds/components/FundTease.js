@@ -95,7 +95,7 @@ const FundTease = ({
           <FundIcon fill={"#000"} />
         </Flex>
         <Text mb={10} numberOfLines={2} color={fund?.color}>
-          {fund?.color}-{fund?.fund?.data?.product_tagline || fund.description}
+          {fund?.fund?.data?.product_tagline || fund.description}
         </Text>
         <HStack justifyContent={"space-between"} w={"100%"}>
           {stats.map((stat, i) => {

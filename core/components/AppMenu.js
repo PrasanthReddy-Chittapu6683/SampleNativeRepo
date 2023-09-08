@@ -4,12 +4,13 @@ import { menuLinks } from "../services/menu";
 import Touchable from "./Touchable";
 
 const AppMenu = ({ currentTab, setCurrentTab }) => {
+
   return (
     <Box
       pt={4}
       px={4}
       pb={5}
-      bg={"primary.600"}
+      bg={"#FEF8F3"}
       _light={{
         bg: "white",
       }}

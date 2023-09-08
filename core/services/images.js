@@ -8,5 +8,5 @@ export const useMenuFillColor = (isActive) => {
     return isActive ? "#706FCF" : "#466584";
   }
 
-  return isActive ? "#706FCF" : "#FFFFFF";
+  return isActive ? "#706FCF" : "#000";
 };

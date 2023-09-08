@@ -42,8 +42,8 @@ import InvestmentMoicTrackerScreen from "./modules/investments/components/Invest
 import WelcomeSliderScreen from "./modules/home/components/WelcomeSliderScreen";
 import LandingpageScreen from "./modules/landingPage/LandingpageScreen";
 import EmailPageScreen from "./modules/emailPage/EmailPageScreen";
-import TermsAndConditions from "./modules/termsAndConditions/termsAndConditions";
-
+// import TermsAndConditions from "./modules/termsAndConditions/termsAndConditions";
+import TermsAndConditions from "./modules/termsAndConditions/TermsAndConditions"
 export const routes = {
   loading: {
     name: "Loading",
