@@ -344,7 +344,7 @@ export const useApi = (url, args, options) => {
         logout();
       }
 
-      resetNavigation("Home");
+      // resetNavigation("Home");
     }
 
     return [ApiState.Error, null];

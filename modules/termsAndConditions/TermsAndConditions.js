@@ -158,13 +158,24 @@ const TermsAndConditions = (props) => {
         <TouchableOpacity
           style={styles.acceptBtn}
           onPress={() => {
-            navigation.goBack();
+            // navigation.goBack();
+
+            if (tenentCtx.tenant === "apollo") {
+              navigation.push("Main", {
+                currentTab: "Dashboard",
+              });
+            } else {
+              navigation.push("Login", {
+                userDomain: "APOLLO",
+              });
+            }
+
           }}
         >
           <Text style={[styles.btnText, styles.fw400]}>ACCEPT</Text>
         </TouchableOpacity>
       </Box>
-    </Layout>
+    </Layout >
   );
 };
 
