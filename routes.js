@@ -42,6 +42,7 @@ import InvestmentMoicTrackerScreen from "./modules/investments/components/Invest
 import WelcomeSliderScreen from "./modules/home/components/WelcomeSliderScreen";
 import LandingpageScreen from "./modules/landingPage/LandingpageScreen";
 import EmailPageScreen from "./modules/emailPage/EmailPageScreen";
+import TermsAndConditions from "./modules/termsAndConditions/termsAndConditions";
 
 export const routes = {
   loading: {
@@ -64,6 +65,14 @@ export const routes = {
     name: "EmailPage",
     route: "emailPage",
     component: EmailPageScreen,
+    options: {
+      headerShown: false,
+    },
+  },
+  termsAndConditionsPage: {
+    name: "TermsAndConditionsPage",
+    route: "termsAndConditionsPage",
+    component: TermsAndConditions,
     options: {
       headerShown: false,
     },
@@ -366,6 +375,7 @@ export const useRoutes = () => {
     routes.landingPage,
     routes.home,
     routes.emailPage,
+    routes.termsAndConditionsPage,
     routes.welcome,
     routes.login,
     routes.verify,
