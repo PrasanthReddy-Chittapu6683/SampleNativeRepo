@@ -6,12 +6,13 @@ export const apolloColors = {
         100: "#fff",
     },
     primary: {
-        400: "#ffffff",
+        400: "#FEF8F3",
         600: "#1B1B20",
         800: "#171722",
         900: "#010101"
     },
     gray: {
+        100: "#010101",
         200: "#D9D9D9",
         300: "#DADADA",
         400: "#C2BFC8",
@@ -24,7 +25,7 @@ export const apolloColors = {
         75: "#A9C1D8",
         100: "#EEFFCA",
         150: "#E4E4FB",
-        200: "#D8CCFA",
+        200: "#7C7C7C",
         250: "#A69CC4",
         275: "rgba(89, 62, 168, 0.7)",
         300: "#706FCF",
@@ -49,55 +50,55 @@ export const apolloColors = {
     gradients: {
         100: {
             linearGradient: {
-                colors: ["#ffffff", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
             },
         },
         400: {
             linearGradient: {
-                colors: ["#FFFFFF", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
             },
         },
         450: {
             linearGradient: {
-                colors: ["#FFFFFF", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
             },
         },
         500: {
             linearGradient: {
-                colors: ["#FFFFFF", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
                 start: [1, 0],
                 end: [1, 1],
             },
         },
         600: {
             linearGradient: {
-                colors: ["#FFFFFF", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
             },
         },
         800: {
             linearGradient: {
-                colors: ["#FFFFFF", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
                 start: [1, 0],
                 end: [1, 1],
             },
         },
         850: {
             linearGradient: {
-                colors: ["#FFFFFF", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
                 start: [1, 0],
                 end: [1, 1],
             },
         },
         900: {
             linearGradient: {
-                colors: ["#FFFFFF", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
                 start: [1, 0],
                 end: [1, 1],
             },
         },
         950: {
             linearGradient: {
-                colors: ["#FFFFFF", "#FFFFFF"],
+                colors: ["#FEF8F3", "#FEF8F3"],
                 start: [1, 0],
                 end: [1, 1],
             },
@@ -112,11 +113,11 @@ export const apolloColors = {
     },
     headings: {
         base: {
-            dark: "white",
+            dark: "#010101",
             light: "accent.500",
         },
         subTitle: {
-            dark: "accent.200",
+            dark: "#7C7C7C",
             light: "accent.450",
         },
         section: {

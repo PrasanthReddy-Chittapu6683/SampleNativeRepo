@@ -60,11 +60,15 @@ const EmailPageScreen = (props) => {
         "Login Access Token >>>",
         response?.authentication?.accessToken
       );
+
       // const { code } = response?.params;
       // setAuthToken("eyJraWQiOiI0Rk9Qak9pazVYVEtsZnBHc3FWb01GdkNFR2ZmTkZ0WDIzdGJuT2FWamo4IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkUtT1Z6R1FhOUQ0aEMyUHdDR1NudmlsUFg4dkxCTEZ3YktaNTRiT1l2N28iLCJpc3MiOiJodHRwczovL2Fwb2xsb2lkLm9rdGFwcmV2aWV3LmNvbS9vYXV0aDIvZGVmYXVsdCIsImF1ZCI6ImFwaTovL2RlZmF1bHQiLCJpYXQiOjE2OTQwNDQxOTcsImV4cCI6MTY5NDA0Nzc5NywiY2lkIjoiMG9hNXFxbjV6YlhLNzZyY2YxZDciLCJ1aWQiOiIwMHU1dncxaHRxWXBLdXVxNzFkNyIsInNjcCI6WyJvcGVuaWQiLCJwcm9maWxlIl0sImF1dGhfdGltZSI6MTY5NDA0NDE5Niwic3ViIjoicGt1bWFycmVkZHlAYXBvbGxvLWFkdmlzb3JzLmNvbSIsIkdyb3VwcyI6WyJva3RhLWFwcGxpY2F0aW9uLWVtcGxveWVlaW52ZXN0b3ItZGV2Iiwib2t0YS1hcHBsaWNhdGlvbi1lbXBsb3llZWludmVzdG9yLWFkbWluLWRldiJdLCJwb3J0YWxGZWRlcmF0aW9uSWRPdmVycmlkZSI6InNwYXRlbEBhcG9sbG8uY29tIn0.M4ffFl--KX9Yd81_bx9OzraX2XvDuNAf66_usG9Txgi3cBcCUS5rQLepyzVf9kLMDSGypN8hHG6rpbx3RWzzISh4-1MOTr-lkbUcc44Fo6jxVsUTLsJEOFN2f1ZqUxH4uLHwLf6NhG9yo1x0mpYBQkl4ItRoAziiVufbOE4hrcoxXBBpwvEs4twpn8GoIbiqhK2WTS7iGOhySq2UEz2N8BN5JHQ9CNJMyw70cUsKmRAG3zFnAuFyFFDdlpNvCQA-c7oKuSRKJYzuBs2AVha9gXFfMvw2nZKt44o8BTEgdrDxAQmNADwSKtA0hD-SfS1fYNeI166-Z13X0JsCOwFKHQ")
 
       setAuthToken(response?.authentication?.accessToken);
-      navigation.navigate("Login");
+      navigation.push("Main", {
+        currentTab: "Dashboard",
+      });
+      // navigation.navigate("Login");
       // navigation.push("Main", {
       //   currentTab: "Dashboard",
       // });

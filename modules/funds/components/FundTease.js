@@ -63,7 +63,8 @@ const FundTease = ({
       bg={fund.style.backgroundColor}
       rounded={"lg"}
       style={{
-        shadowColor: "#fff",
+        shadowColor: "#000",
+        backgroundColor: "#EAE7E4",
         shadowOffset: {
           width: 0,
           height: 0,
@@ -91,10 +92,10 @@ const FundTease = ({
               opportunityName={fund.name}
             />
           </Box>
-          <FundIcon fill={colors.accent[200]} />
+          <FundIcon fill={"#000"} />
         </Flex>
-        <Text mb={10} numberOfLines={2} color={textColor2}>
-          {fund?.fund?.data?.product_tagline || fund.description}
+        <Text mb={10} numberOfLines={2} color={fund?.color}>
+          {fund?.color}-{fund?.fund?.data?.product_tagline || fund.description}
         </Text>
         <HStack justifyContent={"space-between"} w={"100%"}>
           {stats.map((stat, i) => {

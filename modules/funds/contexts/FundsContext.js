@@ -9,7 +9,7 @@ export const FundsContext = createContext({
 });
 
 export const FundsProvider = ({ children }) => {
-  debugger;
+
   const [fundsLoading, availableFunds] =
   {
     fundsLoading: "success",
@@ -218,7 +218,7 @@ export const FundsProvider = ({ children }) => {
     ]
   }
 
-  useApi("opportunity");
+  // useApi("opportunity");
   const fundsToUse = availableFunds || [];
 
   return (
