@@ -14,7 +14,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TenantContext } from "../../../core/contexts/TenantContext";
 import theme from "../../../core/theme";
 
-console.log("theme from loginscreen.js....", theme);
+// console.log("theme from loginscreen.js....", theme);
 
 const LoginScreen = ({ route }) => {
   const tenentCtx = useContext(TenantContext);

@@ -6,7 +6,6 @@ import { useMenuFillColor } from "../services/images";
 
 const HomeIcon = ({ isActive, ...props }) => {
   const fillColor = useMenuFillColor(isActive);
-
   return (
     <IconWrapper {...props}>
       <Svg

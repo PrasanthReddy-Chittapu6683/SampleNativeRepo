@@ -8,6 +8,7 @@ export const colors = {
     800: "#171722",
   },
   gray: {
+    100: "#FFFFFF",
     200: "#D9D9D9",
     300: "#DADADA",
     400: "#C2BFC8",
@@ -108,7 +109,7 @@ export const colors = {
   },
   headings: {
     base: {
-      dark: "white",
+      dark: "#FFFFFF",
       light: "accent.500",
     },
     subTitle: {

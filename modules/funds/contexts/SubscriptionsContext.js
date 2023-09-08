@@ -7,7 +7,7 @@ export const SubscriptionsContext = createContext({
 });
 
 export const SubscriptionsProvider = ({ children }) => {
-  debugger;
+
 
   const [subscriptionsLoading, subscriptions] =
   {
