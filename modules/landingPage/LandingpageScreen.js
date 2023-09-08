@@ -29,45 +29,54 @@ const LandingpageScreen = (props) => {
   };
 
   return (
-    <Box style={styles.container}>
-      <Box style={styles.ednaLogoWrapper}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.push("/");
-          }}
-        >
-          <Image
-            source={ednaSvgLogo}
-            alt={"slide.title"}
-            resizeMode={"contain"}
-            w={"147px"}
-            h={"57px"}
-          />
-        </TouchableOpacity>
-      </Box>
-      <Box style={styles.textAndBtnWrapper}>
-        <Box>
-          <Heading
-            textAlign={"center"}
-            style={[styles.mainTitle, styles.fw400]}
+    <Layout
+      offsetTop={0}
+      offsetSides={0}
+      bg="#C8D3F1"
+      _dark={{
+        bg: "#C8D3F1",
+      }}
+    >
+      <Box style={styles.container}>
+        <Box style={styles.ednaLogoWrapper}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.push("/");
+            }}
           >
-            Welcome
-          </Heading>
-          <Text variant={"subTitle"} style={[styles.btnText, styles.fw300]}>
-            You’re just a few steps away from having the ability to invest in
-            your employer's funds.
-          </Text>
+            <Image
+              source={ednaSvgLogo}
+              alt={"slide.title"}
+              resizeMode={"contain"}
+              w={"147px"}
+              h={"57px"}
+            />
+          </TouchableOpacity>
         </Box>
-        <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={() => {
-            navigation.push("EmailPage");
-          }}
-        >
-          <Text style={[styles.btnText, styles.fw400]}>LOG IN</Text>
-        </TouchableOpacity>
+        <Box style={styles.textAndBtnWrapper}>
+          <Box>
+            <Heading
+              textAlign={"center"}
+              style={[styles.mainTitle, styles.fw400]}
+            >
+              Welcome
+            </Heading>
+            <Text variant={"subTitle"} style={[styles.btnText, styles.fw300]}>
+              You’re just a few steps away from having the ability to invest in
+              your employer's funds.
+            </Text>
+          </Box>
+          <TouchableOpacity
+            style={styles.loginBtn}
+            onPress={() => {
+              navigation.push("EmailPage");
+            }}
+          >
+            <Text style={[styles.btnText, styles.fw400]}>LOG IN</Text>
+          </TouchableOpacity>
+        </Box>
       </Box>
-    </Box>
+    </Layout>
 
     // <Layout offsetSides={0}>
     //   <Box style={styles.container}>

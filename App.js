@@ -52,7 +52,6 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-
   return (
     <SafeAreaProvider>
       <ErrorBoundary>
@@ -86,7 +85,7 @@ export default function App() {
                 ...DefaultTheme,
                 colors: {
                   ...DefaultTheme.colors,
-                  background: "#C8D3F1",
+                  // background: "#C8D3F1",
                   // background: "#12121A",
                 },
               }}
@@ -106,7 +105,6 @@ export default function App() {
                   </ModalsProvider>
                 </AppProvider>
               </TenantContextProvider>
-              
             </NavigationContainer>
           </NativeBaseProvider>
         </GestureHandlerRootView>
