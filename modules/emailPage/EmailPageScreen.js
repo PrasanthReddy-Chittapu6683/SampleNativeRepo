@@ -117,8 +117,8 @@ const EmailPageScreen = (props) => {
                 // }}
                 onPress={() => {
                   tenentCtx.updateTenant("apollo");
-                  navigation.navigate("TermsAndConditionsPage");
-                  // promptAsync({ useProxy, preferEphemeralSession: true });
+                  //navigation.navigate("TermsAndConditionsPage");
+                   promptAsync({ useProxy, preferEphemeralSession: true });
                   // navigation.push("Main", {
                   //   currentTab: "Dashboard",
                   // });
