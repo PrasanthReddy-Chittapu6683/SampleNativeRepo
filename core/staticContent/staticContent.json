@@ -1,0 +1,105 @@
+{
+  "landingPage": {
+    "id": "landingPage",
+    "layoutBgColor": "#C8D3F1",
+    "darkLayoutBgColor": "#C8D3F1",
+    "header": {
+      "logo": {
+        "id": "landingPageLogo",
+        "type": "svg",
+        "name": "EdnaSVGLogo",
+        "navigateTo": "LandingPage"
+      }
+    },
+    "body": {
+      "id": "landingPageSection",
+      "title": "Welcome",
+      "description": "You're just a few steps away from having the ability to invest in your employer's funds.",
+      "controls": {
+        "id": "landingPageControls",
+        "type": "button",
+        "displayName": "LOG IN",
+        "navigateTo": "EmailPage"
+      }
+    },
+    "footer": {}
+  },
+  "emailPage": {
+    "id": "emailPage",
+    "layoutBgColor": "#C8D3F1",
+    "darkLayoutBgColor": "#C8D3F1",
+    "header": {},
+    "body": {
+      "id": "emailPageSection",
+      "title": "SELECT YOUR COMPANY",
+      "description": "",
+      "controls": [
+        {
+          "id": "emailPageApolloControl",
+          "type": "link",
+          "displayName": "",
+          "displayContent": "../../assets/ApolloLogo.png",
+          "alt": "apollo logo",
+          "tenant": "apollo",
+          "navigateTo": "TermsAndConditionsPage"
+        },
+        {
+          "id": "emailPageMotiveControl",
+          "type": "link",
+          "displayName": "",
+          "displayContent": "../../assets/motiveLogo.jpg",
+          "alt": "motive logo",
+          "tenant": "motive",
+          "navigateTo": "TermsAndConditionsPage"
+        }
+      ]
+    },
+    "footer": {}
+  },
+  "termsAndConditionsPage": {
+    "id": "termsAndConditionsPage",
+    "header": {
+      "logo": {
+        "id": "termsAndConditionsPageLogo",
+        "url": "../../assets/ednaLogoSVG.svg",
+        "alt": "edna logo",
+        "navigateTo": "LandingPage"
+      }
+    },
+    "body": {
+      "id": "termsAndConditionsPageSection",
+      "title": "TERMS AND CONDITIONS",
+      "description": [
+        {
+          "id": 1,
+          "displayContent": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        {
+          "id": 2,
+          "displayContent": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        {
+          "id": 3,
+          "displayContent": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        {
+          "id": 4,
+          "displayContent": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        {
+          "id": 5,
+          "displayContent": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        {
+          "id": 6,
+          "displayContent": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        {
+          "id": 7,
+          "displayContent": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+      ]
+    },
+    "footer": {}
+  }
+}

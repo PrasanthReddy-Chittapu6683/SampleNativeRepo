@@ -12,45 +12,43 @@ import Layout from "../../core/components/Layout";
 import Card from "../../core/components/Card";
 import ApolloLogo from "../../assets/ApolloLogo.png";
 import motiveLogo from "../../assets/motiveLogo.jpg";
-import ednaSvgLogo from "../../assets/ednaLogoSVG.svg";
 import PageButton from "../../core/components/PageButton";
+import staticContentJSON from "../../core/staticContent/staticContent.json";
+import EdnaSVGLogo from "../../core/images/EdnaSVGLogo";
 
 const LandingpageScreen = (props) => {
+  const {
+    landingPage: { header, body, layoutBgColor, darkLayoutBgColor },
+  } = staticContentJSON;
+
   const dimensions = useWindowDimensions();
   const orientation = useDeviceOrientation();
   const nonWebImgHeight = orientation.isLandscape
     ? dimensions.height / 2.8
     : dimensions.height / 1.5;
   const navigation = useNavigation();
-  // debugger;
 
-  const handleRoute = () => {
-    navigation.push("Login");
-  };
+  // const handleRoute = () => {
+  //   navigation.push("Login");
+  // };
 
   return (
     <Layout
       offsetTop={0}
       offsetSides={0}
-      bg="#C8D3F1"
+      bg={layoutBgColor}
       _dark={{
-        bg: "#C8D3F1",
+        bg: darkLayoutBgColor,
       }}
     >
       <Box style={styles.container}>
         <Box style={styles.ednaLogoWrapper}>
           <TouchableOpacity
             onPress={() => {
-              navigation.push("/");
+              navigation.push(header?.logo?.navigateTo);
             }}
           >
-            <Image
-              source={ednaSvgLogo}
-              alt={"slide.title"}
-              resizeMode={"contain"}
-              w={"147px"}
-              h={"57px"}
-            />
+            <EdnaSVGLogo />
           </TouchableOpacity>
         </Box>
         <Box style={styles.textAndBtnWrapper}>
@@ -59,20 +57,21 @@ const LandingpageScreen = (props) => {
               textAlign={"center"}
               style={[styles.mainTitle, styles.fw400]}
             >
-              Welcome
+              {body?.title}
             </Heading>
             <Text variant={"subTitle"} style={[styles.btnText, styles.fw300]}>
-              You’re just a few steps away from having the ability to invest in
-              your employer's funds.
+              {body?.description}
             </Text>
           </Box>
           <TouchableOpacity
             style={styles.loginBtn}
             onPress={() => {
-              navigation.push("EmailPage");
+              navigation.push(body?.controls?.navigateTo);
             }}
           >
-            <Text style={[styles.btnText, styles.fw400]}>LOG IN</Text>
+            <Text style={[styles.btnText, styles.fw400]}>
+              {body?.controls?.displayName}
+            </Text>
           </TouchableOpacity>
         </Box>
       </Box>
@@ -175,7 +174,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   loginBtn: {
-    border: "1px solid #7b57fc",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#7b57fc",
     borderRadius: 8,
     height: 53,
     justifyContent: "center",

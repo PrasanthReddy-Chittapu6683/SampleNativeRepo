@@ -1,30 +1,30 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { Box, Text, Image } from "native-base";
+import { Box, Text } from "native-base";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { TenantContext } from "../../core/contexts/TenantContext";
 import Layout from "../../core/components/Layout";
-import apolloLogoSvg from "../../assets/apolloLogoSVG.svg";
-import motiveLogoSvg from "../../assets/motiveLogoSVG.svg";
 import { ScrollView } from "react-native";
+import ApolloSVGLogo from "../../core/images/ApolloSVGLogo";
+import MotivePartnersSVGLogo from "../../core/images/MotivePartnersSVGLogo";
+import staticContentJSON from "../../core/staticContent/staticContent.json";
 
 const TermsAndConditions = (props) => {
+  const {
+    termsAndConditionsPage: { body },
+  } = staticContentJSON;
   const tenentCtx = useContext(TenantContext);
   const navigation = useNavigation();
   return (
     <Layout scroll={false} offsetSides={0}>
       <Box style={styles.container}>
         <Box style={styles.ednaLogoWrapper}>
-            <Image
-              source={
-                tenentCtx.tenant === "apollo" ? apolloLogoSvg : motiveLogoSvg
-              }
-              alt={"slide.title"}
-              resizeMode={"contain"}
-              w={tenentCtx.tenant === "apollo" ? 102 : 142}
-              h={30}
-            />
+          {tenentCtx.tenant === "apollo" ? (
+            <ApolloSVGLogo />
+          ) : (
+            <MotivePartnersSVGLogo />
+          )}
         </Box>
         <ScrollView>
           <Text
@@ -36,128 +36,28 @@ const TermsAndConditions = (props) => {
                 : styles.motiveTextClr,
             ]}
           >
-            TERMS AND CONDITIONS
+            {body?.title}
           </Text>
-          <Text
-            style={[
-              styles.termsText,
-              styles.mb20,
-              tenentCtx.tenant === "apollo"
-                ? styles.apolloTextClr
-                : styles.motiveTextClr,
-            ]}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Text>
-          <Text
-            style={[
-              styles.termsText,
-              styles.mb20,
-              tenentCtx.tenant === "apollo"
-                ? styles.apolloTextClr
-                : styles.motiveTextClr,
-            ]}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Text>
-          <Text
-            style={[
-              styles.termsText,
-              styles.mb20,
-              tenentCtx.tenant === "apollo"
-                ? styles.apolloTextClr
-                : styles.motiveTextClr,
-            ]}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Text>
-          <Text
-            style={[
-              styles.termsText,
-              styles.mb20,
-              tenentCtx.tenant === "apollo"
-                ? styles.apolloTextClr
-                : styles.motiveTextClr,
-            ]}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Text>
-          <Text
-            style={[
-              styles.termsText,
-              styles.mb20,
-              tenentCtx.tenant === "apollo"
-                ? styles.apolloTextClr
-                : styles.motiveTextClr,
-            ]}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Text>
-          <Text
-            style={[
-              styles.termsText,
-              styles.mb20,
-              tenentCtx.tenant === "apollo"
-                ? styles.apolloTextClr
-                : styles.motiveTextClr,
-            ]}
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Text>
+          {body?.description &&
+            body?.description.map((item) => (
+              <Text
+                key={item?.id}
+                style={[
+                  styles.termsText,
+                  styles.mb20,
+                  tenentCtx.tenant === "apollo"
+                    ? styles.apolloTextClr
+                    : styles.motiveTextClr,
+                ]}
+              >
+                {item?.displayContent}
+              </Text>
+            ))}
         </ScrollView>
         <TouchableOpacity
           style={styles.acceptBtn}
           onPress={() => {
             // navigation.goBack();
-
             if (tenentCtx.tenant === "apollo") {
               navigation.push("Main", {
                 currentTab: "Dashboard",
@@ -167,13 +67,12 @@ const TermsAndConditions = (props) => {
                 userDomain: "APOLLO",
               });
             }
-
           }}
         >
           <Text style={[styles.btnText, styles.fw400]}>ACCEPT</Text>
         </TouchableOpacity>
       </Box>
-    </Layout >
+    </Layout>
   );
 };
 
