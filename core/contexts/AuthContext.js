@@ -14,14 +14,14 @@ export const LoginStage = {
 export const AuthContext = createContext({
   authEmail: "",
   stage: LoginStage.Email,
-  setStage: () => {},
+  setStage: () => { },
   isTokenLoading: true,
   isLoggedIn: false,
-  setIsLoggedIn: () => {},
-  login: async () => {},
-  verify: async () => {},
-  resendVerificationCode: async () => {},
-  logout: () => {},
+  setIsLoggedIn: () => { },
+  login: async () => { },
+  verify: async () => { },
+  resendVerificationCode: async () => { },
+  logout: () => { },
   authError: undefined,
 });
 
@@ -77,10 +77,10 @@ export const AuthProvider = ({ children }) => {
   const handleLogout = async () => {
     await logout();
     setStateIsLoggedIn(false);
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "Home" }],
-    });
+    // navigation.reset({
+    //   index: 0,
+    //   routes: [{ name: "Home" }],
+    // });
   };
 
   return (

@@ -6,8 +6,8 @@ import { mutate } from "swr";
 export const UserContext = createContext({
   user: {},
   userLoading: ApiState.Loading,
-  updateMe: () => {},
-  deleteMe: async () => {},
+  updateMe: () => { },
+  deleteMe: async () => { },
 });
 
 export const UserProvider = ({ children }) => {
