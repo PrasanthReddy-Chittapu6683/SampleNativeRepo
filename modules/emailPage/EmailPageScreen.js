@@ -110,18 +110,12 @@ const EmailPageScreen = (props) => {
             </Heading>
             <Box style={styles.imageWrapper}>
               <TouchableOpacity
-                // onPress={() => {
-                //   navigation.push("Login", {
-                //     userDomain: "APOLLO",
-                //   });
-                // }}
+
                 onPress={() => {
                   tenentCtx.updateTenant("apollo");
                   //navigation.navigate("TermsAndConditionsPage");
                   promptAsync({ useProxy, preferEphemeralSession: true });
-                  // navigation.push("Main", {
-                  //   currentTab: "Dashboard",
-                  // });
+
                 }}
               >
                 <Image

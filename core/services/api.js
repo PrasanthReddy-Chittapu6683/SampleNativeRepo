@@ -340,9 +340,9 @@ export const useApi = (url, args, options) => {
       error,
     });
     if (error?.status === 401) {
-      if (loggedIn) {
-        logout();
-      }
+      // if (loggedIn) {
+      //   logout();
+      // }
 
       // resetNavigation("Home");
     }

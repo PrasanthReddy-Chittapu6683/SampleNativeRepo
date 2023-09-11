@@ -8,7 +8,7 @@ import { useAfterLogin } from "../services/login";
 
 const DetailsScreen = () => {
   const [loading, setLoading] = useState(false);
-  const { updateMe } = useContext(UserContext);
+  const { updateMe } = {}; //useContext(UserContext);
   const afterLogin = useAfterLogin();
   const formik = useFormik({
     initialValues: {
@@ -30,7 +30,7 @@ const DetailsScreen = () => {
     },
     onSubmit: async (values) => {
       setLoading(true);
-      await updateMe(values);
+      //await updateMe(values);
 
       afterLogin();
     },
