@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    alignItems: "start",
+    alignItems: "flex-start",
     padding: 16,
   },
   textAndBtnWrapper: {
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     border: "1px solid #7b57fc",
-    borderRadius: "8px",
+    borderRadius: 8,
     height: 53,
     justifyContent: "center",
   },
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   btnText: {
     color: "#121220",
     textAlign: "center",
-    fontSize: "15px",
+    fontSize: 15,
   },
   fw300: {
     fontWeight: 300,

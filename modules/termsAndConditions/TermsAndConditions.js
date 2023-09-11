@@ -16,7 +16,6 @@ const TermsAndConditions = (props) => {
     <Layout scroll={false} offsetSides={0}>
       <Box style={styles.container}>
         <Box style={styles.ednaLogoWrapper}>
-          <TouchableOpacity>
             <Image
               source={
                 tenentCtx.tenant === "apollo" ? apolloLogoSvg : motiveLogoSvg
@@ -26,7 +25,6 @@ const TermsAndConditions = (props) => {
               w={tenentCtx.tenant === "apollo" ? 102 : 142}
               h={30}
             />
-          </TouchableOpacity>
         </Box>
         <ScrollView>
           <Text
